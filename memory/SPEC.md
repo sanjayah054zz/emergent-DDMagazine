@@ -27,3 +27,5 @@ The prototype uses local React state and static in-memory dummy data only. The e
 - Full-width performance hero, asymmetric bento grid, dashed section dividers, telemetry micro-labels, responsive layouts.
 - Detail routes live at `/articles/:slug` and use shared static article story data with image, category, title, dek, byline/date, read time, and short editorial body.
 - **LOCAL STATE MOCKED**: Tools calculations, comparisons, Pitstop votes/posts, and Membership joining are interactive browser state only; no persistence or integrations were added.
+- Pitstop accepts local JPG/PNG/WebP uploads up to 5 MB, previews the image, and publishes it inside the new in-memory discussion post.
+- Livery Visualizer Pro supports body color, gloss/satin/metallic finish, wheel color, four graphic packages, windshield masking, live build telemetry, multiple session-saved builds, and downloadable SVG build cards.
