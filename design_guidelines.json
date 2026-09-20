@@ -1,0 +1,260 @@
+{
+  "brand_identity": {
+    "name": "Daily Driver",
+    "tagline": "The Everyday Automotive Magazine",
+    "design_tone": "Mechanical, editorial, bold, track-inspired tactical minimalism with precision automotive typography",
+    "archetype": "THE PERFORMANCE PRO (Elite Athleticism, Precision & Mechanical Engineering)",
+    "modes": {
+      "track": {
+        "name": "Track Mode",
+        "description": "Default dark performance mode",
+        "background": "#1A1A1A",
+        "card_background": "#222222",
+        "card_secondary": "#2A2A2A",
+        "text_primary": "#F8F8F8",
+        "text_secondary": "#CCCCCC",
+        "border": "#333333",
+        "border_subtle": "#2B2B2B"
+      },
+      "street": {
+        "name": "Street Mode",
+        "description": "Crisp daytime editorial light mode",
+        "background": "#F8F8F8",
+        "card_background": "#FFFFFF",
+        "card_secondary": "#F0F0F0",
+        "text_primary": "#1A1A1A",
+        "text_secondary": "#555555",
+        "border": "#E2E2E2",
+        "border_subtle": "#EBEBEB"
+      }
+    }
+  },
+  "colors": {
+    "asphalt_black": "#1A1A1A",
+    "asphalt_darker": "#111111",
+    "asphalt_card": "#232323",
+    "asphalt_border": "#333333",
+    "orange_safety": "#FF6600",
+    "orange_safety_hover": "#E65C00",
+    "orange_glow": "rgba(255, 102, 0, 0.25)",
+    "off_white": "#F8F8F8",
+    "steel_silver": "#CCCCCC",
+    "steel_silver_dark": "#888888",
+    "status_green": "#10B981",
+    "accent_subtle": "#2B2621"
+  },
+  "typography": {
+    "font_family_heading": "'Barlow Condensed', 'Eurostile', sans-serif",
+    "font_family_subheading": "'Barlow', sans-serif",
+    "font_family_body": "'Barlow', 'Geist Variable', sans-serif",
+    "font_family_mono": "'JetBrains Mono Variable', monospace",
+    "eurostile_italic_effect": "font-black italic uppercase tracking-wider",
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.05]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight",
+      "h3": "text-xl sm:text-2xl font-bold uppercase tracking-normal",
+      "h4": "text-lg sm:text-xl font-bold uppercase tracking-wide",
+      "badge": "text-xs font-mono font-bold tracking-[0.2em] uppercase",
+      "body": "text-sm sm:text-base leading-relaxed",
+      "mono_data": "font-mono text-sm tracking-tight font-semibold"
+    }
+  },
+  "visual_enhancers": {
+    "grid_borders": "1px solid border with mechanical dashes (border-dashed or 1px border-[#333333])",
+    "section_dividers": "border-t border-dashed my-16 opacity-40",
+    "accents": "Tactical orange hazard corner markers, race telemetry pill indicators, technical spec tables, micro-meters",
+    "noise_texture": "Subtle grain overlay for asphalt road tactility"
+  },
+  "curated_media": {
+    "hero_artura": {
+      "url": "https://images.unsplash.com/photo-1787354478969-e459bfd245a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwyfHxzcG9ydHMlMjBjYXIlMjBjb2FzdGFsJTIwcm9hZHxlbnwwfHx8fDE3ODk5NDEwMjd8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Orange high-performance sports car driving on coastal asphalt highway",
+      "caption": "THE ART OF HYBRID SPEED: Driving the New Artura."
+    },
+    "bento_overland_suv": {
+      "url": "https://images.unsplash.com/photo-1583355497633-e4248ca3fdb0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxvZmZyb2FkJTIwc3V2JTIwYWR2ZW50dXJlfGVufDB8fHx8MTc4OTk0MTAyN3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Rugged 4x4 overland offroad vehicle in harsh wilderness",
+      "caption": "OVERLANDING FOR EVERYONE: Building a Budget Adventurer."
+    },
+    "bento_volvo_ev": {
+      "url": "https://images.unsplash.com/photo-1617727553401-3ec4e92f32a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHx3aGl0ZSUyMGVsZWN0cmljJTIwdmVoaWNsZSUyMGNhcnxlbnwwfHx8fDE3ODk5NDEwMjd8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Sleek compact white electric vehicle parked in modern city street",
+      "caption": "FUTURE OF COMMUTING: Tiny Volvo, Big Impact."
+    },
+    "bento_miata_classic": {
+      "url": "https://images.pexels.com/photos/9846051/pexels-photo-9846051.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Classic driver's roadster parked at coastal overlook",
+      "caption": "LEGENDS OF LIFESTYLE: The Unbeatable Joy of a Miata."
+    },
+    "side_article_thumb_1": {
+      "url": "https://images.pexels.com/photos/28748682/pexels-photo-28748682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "title": "Tire Tech 2026: The Rubber Compound Revolution",
+      "category": "TECH LAB"
+    },
+    "side_article_thumb_2": {
+      "url": "https://images.unsplash.com/photo-1704475336842-0ab3798abf0e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMGVsZWN0cmljJTIwdmVoaWNsZSUyMGNhcnxlbnwwfHx8fDE3ODk5NDEwMjd8MA&ixlib=rb-4.1.0&q=85",
+      "title": "Kilowatts vs Octane: The Commuter Dilemma",
+      "category": "BUYER'S GUIDE"
+    },
+    "side_article_thumb_3": {
+      "url": "https://images.unsplash.com/photo-1780399823334-778b0787d7aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjBjYXIlMjBjb2FzdGFsJTIwcm9hZHxlbnwwfHx8fDE3ODk5NDEwMjd8MA&ixlib=rb-4.1.0&q=85",
+      "title": "Night Driving: Apex Vision & LED Laser Tech",
+      "category": "FEATURES"
+    }
+  },
+  "layout_architecture": {
+    "1_navbar": {
+      "container": "sticky top-0 z-50 backdrop-blur-xl border-b transition-colors duration-300",
+      "left": "Daily Driver mechanical wordmark with speed-italic bold slant and Safety Orange geometric gear/chevron mark",
+      "links": ["CAR REVIEWS", "FEATURES", "NEWS", "BUYERS GUIDES", "SHOP"],
+      "tools": ["Search trigger with interactive search modal/input", "Track Mode (Dark) vs Street Mode (Light) mechanical switch"]
+    },
+    "2_hero_section": {
+      "type": "Full-bleed coastal road hero with dynamic gradient overlay",
+      "gradient_scrim": "bg-gradient-to-r from-black/85 via-black/50 to-transparent",
+      "headline": "THE ART OF HYBRID SPEED: Driving the New Artura.",
+      "subheadline": "Our definitive review of the latest performance benchmark.",
+      "cta": "Solid Orange Safety (#FF6600) box with Off White (#F8F8F8) bold text: 'READ THE FULL FEATURE'",
+      "carousel_indicator": "Bottom right telemetry display with '1/5', active Orange segment and Steel Silver inactive bar with interactive next/prev buttons"
+    },
+    "3_main_bento_grid": {
+      "wrapper": "grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 lg:p-12",
+      "left_column": "lg:col-span-5 h-[520px] rounded-sm overflow-hidden relative group border",
+      "middle_column": "lg:col-span-4 flex flex-col gap-6",
+      "right_column": "lg:col-span-3 border p-6 flex flex-col justify-between"
+    },
+    "4_interactive_sections": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16",
+      "divider": "border-t border-dashed border-[#333333]/50 dark:border-white/10 my-12",
+      "feature_1_mode_toggle": "Integrated in navbar and synchronized across all interactive modules",
+      "feature_2_garage": {
+        "title": "THE GARAGE // SPEC SHEET COMPARISON",
+        "description": "Select two machines from the fleet to compare daily livability, horsepower, wet curb weight, and real-world commuter ratings.",
+        "vehicles": [
+          {
+            "id": "yamaha_tenere_700",
+            "name": "Yamaha Ténéré 700",
+            "type": "Dual-Sport Adventure",
+            "engine": "689cc CP2 Parallel-Twin (72.4 hp)",
+            "weight": "205 kg (wet)",
+            "price": "$10,799 USD",
+            "fuel_economy": "23.8 km/L",
+            "commute_rating": "8.7 / 10 (Agile Lane Filterer)",
+            "acceleration_0_100": "4.2s",
+            "top_speed": "185 km/h"
+          },
+          {
+            "id": "cfmoto_450_mt",
+            "name": "CFMoto 450 MT",
+            "type": "Lightweight Mid-Adventure",
+            "engine": "449cc 270° Parallel-Twin (44 hp)",
+            "weight": "175 kg (dry) / 190 kg (wet)",
+            "price": "$6,499 USD",
+            "fuel_economy": "26.5 km/L",
+            "commute_rating": "9.2 / 10 (Pocket Commuter King)",
+            "acceleration_0_100": "5.6s",
+            "top_speed": "155 km/h"
+          },
+          {
+            "id": "mazda_miata_nd3",
+            "name": "Mazda MX-5 Miata ND3",
+            "type": "Lightweight Sports Roadster",
+            "engine": "2.0L Skyactiv-G 4-Cyl (181 hp)",
+            "weight": "1,061 kg",
+            "price": "$28,985 USD",
+            "fuel_economy": "14.5 km/L",
+            "commute_rating": "8.1 / 10 (Pure Smiles per Mile)",
+            "acceleration_0_100": "5.7s",
+            "top_speed": "219 km/h"
+          },
+          {
+            "id": "mclaren_artura",
+            "name": "McLaren Artura",
+            "type": "Twin-Turbo Hybrid Supercar",
+            "engine": "3.0L V6 Twin-Turbo + E-Motor (690 hp)",
+            "weight": "1,498 kg",
+            "price": "$237,500 USD",
+            "fuel_economy": "10.2 km/L",
+            "commute_rating": "7.4 / 10 (Extravagant Daily)",
+            "acceleration_0_100": "3.0s",
+            "top_speed": "330 km/h"
+          }
+        ]
+      },
+      "feature_3_ownership_calculator": {
+        "title": "COST OF OWNERSHIP CALCULATOR // FUEL & RUNNING METRICS",
+        "description": "Calculate your true everyday operating expenditure based on real commute habits and localized taxation.",
+        "defaults": {
+          "daily_commute_km": 45,
+          "fuel_efficiency_kml": 14.5,
+          "annual_tax": 320,
+          "fuel_price_per_liter": 1.75
+        },
+        "formula": "Monthly Fuel Cost = (daily_km * 30.5 / efficiency_kml) * fuel_price; Monthly Tax = annual_tax / 12; Total Monthly = Monthly Fuel + Monthly Tax"
+      },
+      "feature_4_pitstop_forum": {
+        "title": "PITSTOP COMMUNITY // ACTIVE DISCUSSIONS",
+        "description": "Live paddock telemetry from the Daily Driver reader collective. Upvote posts, share garage insights, or filter by topic.",
+        "initial_posts": [
+          {
+            "id": 1,
+            "author": "ApexHunter_99",
+            "badge": "Track Veteran",
+            "title": "Is dailying a manual roadster still practical in stop-and-go metro traffic?",
+            "preview": "Been doing 40km across Seattle for 6 months. Heavy clutch but the Friday escape makes every red light worth it.",
+            "upvotes": 42,
+            "comments": 19,
+            "category": "DAILY GRIND",
+            "time": "22m ago"
+          },
+          {
+            "id": 2,
+            "author": "OverlandKev",
+            "badge": "Trail Master",
+            "title": "Budget Skid Plates: Aluminum 4mm vs Steel 3mm for weekend warriors",
+            "preview": "Tested both on rocky Colorado fire roads. Steel took the rock slams with zero gouging, but that 18kg penalty hurts mpg.",
+            "upvotes": 28,
+            "comments": 14,
+            "category": "TECH TALK",
+            "time": "1h ago"
+          },
+          {
+            "id": 3,
+            "author": "VoltRunner",
+            "badge": "EV Pioneer",
+            "title": "Cold weather range drop: 2026 winter observations across Scandinavia",
+            "preview": "Heat pump efficiency held steady down to -12C. Preconditioning while plugged in saves at least 18% usable pack.",
+            "upvotes": 35,
+            "comments": 23,
+            "category": "EV LAB",
+            "time": "3h ago"
+          }
+        ]
+      },
+      "feature_5_customization_visualizer": {
+        "title": "CUSTOMIZATION VISUALIZER // LIVERY & MASKING SUITE",
+        "description": "Interactive race paddock paint booth. Switch color swatches and test windshield sunstrip / masking overlays in real time.",
+        "swatches": [
+          { "name": "Asphalt Black", "hex": "#1A1A1A", "border": "#555555" },
+          { "name": "Orange Safety", "hex": "#FF6600", "border": "#FFFFFF" },
+          { "name": "Steel Silver", "hex": "#CCCCCC", "border": "#FFFFFF" }
+        ],
+        "masking_rule": "Functional toggle switch labeled 'Apply Windshield Masking'. When ON, top windshield region turns pure white/transparent with race visor banner typography."
+      }
+    },
+    "5_footer": {
+      "branding": "DAILY DRIVER AUTOMOTIVE MEDIA CORP",
+      "tagline": "The Everyday Automotive Magazine // Established 2026",
+      "social_links": ["Facebook", "Instagram", "X (Twitter)", "YouTube"],
+      "legal": "© 2026 Daily Driver Magazine. All telemetry and automotive reviews reserved. Built with precision for asphalt enthusiasts."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. Replace default App.tsx / Home.tsx with the high-octane Daily Driver automotive magazine prototype.",
+    "2. Implement full Track Mode (Dark #1A1A1A) and Street Mode (Light #F8F8F8) reactivity across the entire DOM tree.",
+    "3. Ensure the Hero section includes the full-bleed performance car image, dark gradient overlay for text legibility, large Artura headline, orange CTA button, and 1/5 carousel indicator.",
+    "4. Construct the Main Asymmetric Bento Grid matching the specification: Left Column tall Overland card, Middle Column two stacked cards (White EV Volvo & Classic Miata), Right Column 'FEATURED IN THE MAG' thumbnail list.",
+    "5. Build all 5 interactive features with React useState: Track/Street mode toggle, Garage Yamaha Tenere 700 vs CFMoto 450 MT dropdown comparison sheet, Ownership Calculator with dynamic orange monthly cost output, Pitstop forum feed with working upvote counters, and Livery Visualizer with 3 brand swatches and functional Windshield Masking toggle.",
+    "6. Add data-testid attributes to all interactive controls (mode toggle, vehicle selects, inputs, upvote buttons, color swatches, masking toggle, and CTAs) for automated test compliance."
+  ]
+}
