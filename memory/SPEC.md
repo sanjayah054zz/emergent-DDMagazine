@@ -7,13 +7,14 @@ Daily Driver is a responsive interactive digital automotive magazine prototype. 
 ## Key flows
 
 - Browse the Artura hero, advance the five-story carousel, and trigger the feature CTA toast.
-- Use the masthead navigation to scroll to Garage, Ownership, Pitstop, or Livery sections.
+- Use the masthead navigation to open the magazine archive, Tools hub, detailed Pitstop community, and Membership page.
 - Select two vehicles and reveal a side-by-side spec comparison.
 - Edit commute, fuel-efficiency, and annual-tax inputs to calculate monthly running cost using the $1.75/L benchmark.
 - Upvote any Pitstop community post.
 - Select one of three livery swatches and toggle windshield masking in the visualizer.
 - Toggle Track/Street Mode from the navbar; all page surfaces respond through CSS variables.
 - Open lightweight editorial detail routes for the Artura hero, overlanding, compact EV, and Miata stories, then return through the back-to-magazine links or Daily Driver logo.
+- Homepage is editorial-only; Garage, Ownership, and Livery live at `/tools`, Pitstop lives at `/pitstop`, the full archive lives at `/archive`, and Membership lives at `/membership`.
 
 ## Data model
 
@@ -25,3 +26,4 @@ The prototype uses local React state and static in-memory dummy data only. The e
 - Space Grotesk and IBM Plex Sans are bundled local stand-ins for the requested Barlow / Eurostile mechanical editorial direction.
 - Full-width performance hero, asymmetric bento grid, dashed section dividers, telemetry micro-labels, responsive layouts.
 - Detail routes live at `/articles/:slug` and use shared static article story data with image, category, title, dek, byline/date, read time, and short editorial body.
+- **LOCAL STATE MOCKED**: Tools calculations, comparisons, Pitstop votes/posts, and Membership joining are interactive browser state only; no persistence or integrations were added.

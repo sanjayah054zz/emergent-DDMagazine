@@ -1,0 +1,69 @@
+{
+  "iteration": 1,
+  "summary": "8/8 browser checks passed. No API-bearing criteria found — all interactive data (Garage, Ownership, Pitstop, Membership) is local React state per spec, so no backend test files were created.",
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    {
+      "criterion": "Homepage is editorial-only",
+      "name": "homepage-editorial-only",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "MagazineHome renders header/hero/article-grid/featured/footer; tools-garage-section, tools-ownership-section, tools-livery-section, pitstop-forum-feed all assert toHaveCount(0) on '/'."
+    },
+    {
+      "criterion": "Article archive is complete and interactive",
+      "name": "archive-search-filter-and-detail-nav",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "7 archive cards rendered; search 'tire' narrows to 1 (tire-tech-2026); category filter narrows count between 1 and 6; clicking read-link navigates to /articles/tire-tech-2026 (article-page visible)."
+    },
+    {
+      "criterion": "Article detail routes work",
+      "name": "article-detail-elements-and-navigation",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "article-hero-image, article-category, article-title, article-dek, article-author, article-published, article-read-time, article-copy all visible; mode toggle changes article-mode-label text; back-to-magazine link and logo link both return to magazine-home-page."
+    },
+    {
+      "criterion": "Tools hub preserves all requested tools",
+      "name": "tools-hub-garage-calculator-livery",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Selected tenere + cfmoto -> comparison sheet shows 'Ténéré 700' and 'CFMoto 450 MT'; changing daily-km/efficiency inputs updates tools-monthly-cost-value; orange swatch sets silhouette background-color rgb(255,102,0) and current-livery label; windshield toggle adds 'masked' class."
+    },
+    {
+      "criterion": "Pitstop has a detailed standalone community page",
+      "name": "pitstop-filters-upvote-and-post",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "4 seeded posts; DAILY GRIND filter reduces visible count (>0, <4); upvote on post 1 increments votes text by 1; submitting compose form with fixture title 'tscheck-new-discussion-<ts>' adds a 5th post visible in feed."
+    },
+    {
+      "criterion": "Membership replaces Shop",
+      "name": "membership-nav-and-plan-join",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "magazine-navigation contains MEMBERSHIP link and text does not contain 'SHOP'; default selected plan is membership-plan-grid (Grid Member, has 'selected' class); selecting Factory Spec updates selected-plan heading to 'FACTORY SPEC'; Join the Line button flips to 'MEMBERSHIP ACTIVE' and copy contains 'active'."
+    },
+    {
+      "criterion": "Track and Street modes remain operational",
+      "name": "track-street-mode-toggle-across-pages",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "magazine-mode-toggle flips track-mode/street-mode class on magazine-home-page, tools-page, pitstop-page, and membership-page in turn (each page holds its own local mode state, default track-mode)."
+    },
+    {
+      "criterion": "Responsive branded shell remains consistent",
+      "name": "responsive-branded-shell-desktop",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "At 1440x900: magazine-header, magazine-logo, all 5 nav links, and magazine-footer with logo + facebook/instagram/x/youtube social icons all visible."
+    }
+  ],
+  "bugs": [],
+  "action_items": [
+    "No API-bearing UI criteria were identified in the acceptance matrix (Garage/Ownership/Pitstop/Membership are explicitly local prototype state per SPEC.md), so no backend pytest files were added this iteration — this is expected, not an omission."
+  ],
+  "retest_needed": false
+}
