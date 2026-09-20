@@ -1,4 +1,5 @@
 import { useMemo, useState, type CSSProperties } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 import {
   ArrowUpRight,
@@ -196,6 +197,7 @@ function SpecCell({ label, value, testId }: { label: string; value: string; test
 }
 
 export default function Home() {
+  const navigate = useNavigate();
   const [trackMode, setTrackMode] = useState(true);
   const [heroIndex, setHeroIndex] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -283,7 +285,7 @@ export default function Home() {
             <span className="eyebrow hero-eyebrow" data-testid="hero-kicker">{currentStory.kicker}</span>
             <h1 data-testid="hero-heading">{currentStory.title}</h1>
             <p data-testid="hero-subheading">{currentStory.subheading}</p>
-            <Button className="orange-button" onClick={() => toast.success("Feature queued for your reading list")} data-testid="hero-feature-cta">
+            <Button className="orange-button" onClick={() => navigate("/articles/art-of-hybrid-speed")} data-testid="hero-feature-cta">
               READ THE FULL FEATURE <ArrowUpRight size={17} />
             </Button>
           </div>
@@ -300,17 +302,17 @@ export default function Home() {
         </section>
 
         <section className="magazine-grid" id="magazine-grid" data-testid="magazine-grid">
-          <article className="feature-card feature-card-tall" style={{ backgroundImage: `url(${imagery.overland})` }} data-testid="overland-feature-card">
+          <button className="feature-card feature-card-tall article-link-card" onClick={() => navigate("/articles/overlanding-for-everyone")} style={{ backgroundImage: `url(${imagery.overland})` }} data-testid="overland-feature-card">
             <div className="card-shade" />
             <div className="feature-card-copy"><span data-testid="overland-card-kicker">ADVENTURE // 01</span><h3 data-testid="overland-card-title">OVERLANDING FOR EVERYONE: <strong>Building a Budget Adventurer.</strong></h3><div className="orange-rule" /></div>
-          </article>
+          </button>
           <div className="feature-middle-column">
-            <article className="feature-card feature-card-short" style={{ backgroundImage: `url(${imagery.ev})` }} data-testid="ev-feature-card">
+            <button className="feature-card feature-card-short article-link-card" onClick={() => navigate("/articles/future-of-commuting")} style={{ backgroundImage: `url(${imagery.ev})` }} data-testid="ev-feature-card">
               <div className="card-shade" /><div className="feature-card-copy"><span data-testid="ev-card-kicker">COMMUTE // 02</span><h3 data-testid="ev-card-title">FUTURE OF COMMUTING: <strong>Tiny Volvo, Big Impact.</strong></h3><div className="orange-rule" /></div>
-            </article>
-            <article className="feature-card feature-card-short" style={{ backgroundImage: `url(${imagery.miata})` }} data-testid="miata-feature-card">
+            </button>
+            <button className="feature-card feature-card-short article-link-card" onClick={() => navigate("/articles/legends-of-lifestyle")} style={{ backgroundImage: `url(${imagery.miata})` }} data-testid="miata-feature-card">
               <div className="card-shade" /><div className="feature-card-copy"><span data-testid="miata-card-kicker">LIFESTYLE // 03</span><h3 data-testid="miata-card-title">LEGENDS OF LIFESTYLE: <strong>The Unbeatable Joy of a Miata.</strong></h3><div className="orange-rule" /></div>
-            </article>
+            </button>
           </div>
           <aside className="featured-mag" data-testid="featured-mag-section">
             <div className="featured-heading"><span className="eyebrow" data-testid="featured-mag-eyebrow">EDITOR'S PICK // 04</span><h2 data-testid="featured-mag-title">FEATURED IN THE MAG</h2></div>

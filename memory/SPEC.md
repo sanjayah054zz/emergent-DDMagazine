@@ -13,6 +13,7 @@ Daily Driver is a responsive interactive digital automotive magazine prototype. 
 - Upvote any Pitstop community post.
 - Select one of three livery swatches and toggle windshield masking in the visualizer.
 - Toggle Track/Street Mode from the navbar; all page surfaces respond through CSS variables.
+- Open lightweight editorial detail routes for the Artura hero, overlanding, compact EV, and Miata stories, then return through the back-to-magazine links or Daily Driver logo.
 
 ## Data model
 
@@ -23,3 +24,4 @@ The prototype uses local React state and static in-memory dummy data only. The e
 - Asphalt Black `#1A1A1A`, Orange Safety `#FF6600`, Off White `#F8F8F8`, Steel Silver `#CCCCCC`.
 - Space Grotesk and IBM Plex Sans are bundled local stand-ins for the requested Barlow / Eurostile mechanical editorial direction.
 - Full-width performance hero, asymmetric bento grid, dashed section dividers, telemetry micro-labels, responsive layouts.
+- Detail routes live at `/articles/:slug` and use shared static article story data with image, category, title, dek, byline/date, read time, and short editorial body.
