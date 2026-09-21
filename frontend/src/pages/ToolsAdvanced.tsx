@@ -9,6 +9,11 @@ const vehicles = [
   { id: "tenere", name: "Yamaha Ténéré 700", type: "DUAL-SPORT ADVENTURE", engine: "689cc CP2 Parallel-Twin (72.4 hp)", weight: "205 kg (wet)", price: "$10,799 USD", rating: "8.7 / 10", economy: "23.8 km/L" },
   { id: "cfmoto", name: "CFMoto 450 MT", type: "LIGHTWEIGHT MID-ADVENTURE", engine: "449cc 270° Parallel-Twin (44 hp)", weight: "190 kg (wet)", price: "$6,499 USD", rating: "9.2 / 10", economy: "26.5 km/L" },
   { id: "miata", name: "Mazda MX-5 Miata ND3", type: "LIGHTWEIGHT SPORTS ROADSTER", engine: "2.0L Skyactiv-G 4-Cyl (181 hp)", weight: "1,061 kg", price: "$28,985 USD", rating: "8.1 / 10", economy: "14.5 km/L" },
+  { id: "volvo-ex30", name: "Volvo EX30 Twin Motor", type: "COMPACT ELECTRIC CROSSOVER", engine: "Dual-Motor AWD (422 hp)", weight: "1,943 kg", price: "$46,195 USD", rating: "9.0 / 10", economy: "17.5 kWh/100 km" },
+  { id: "rav4-hybrid", name: "Toyota RAV4 Hybrid", type: "HYBRID DAILY SUV", engine: "2.5L Hybrid AWD (219 hp)", weight: "1,720 kg", price: "$33,295 USD", rating: "9.4 / 10", economy: "17.0 km/L" },
+  { id: "civic-type-r", name: "Honda Civic Type R", type: "PERFORMANCE HOT HATCH", engine: "2.0L Turbo 4-Cyl (315 hp)", weight: "1,430 kg", price: "$45,895 USD", rating: "8.6 / 10", economy: "10.2 km/L" },
+  { id: "bronco-badlands", name: "Ford Bronco Badlands", type: "TRAIL-READY OFF-ROADER", engine: "2.7L Twin-Turbo V6 (330 hp)", weight: "2,263 kg", price: "$51,990 USD", rating: "7.8 / 10", economy: "7.7 km/L" },
+  { id: "mclaren-artura", name: "McLaren Artura", type: "HYBRID PERFORMANCE SUPERCAR", engine: "3.0L Twin-Turbo V6 + E-Motor (690 hp)", weight: "1,498 kg", price: "$237,500 USD", rating: "7.4 / 10", economy: "10.2 km/L" },
 ];
 
 type Finish = "Gloss" | "Satin" | "Metallic";

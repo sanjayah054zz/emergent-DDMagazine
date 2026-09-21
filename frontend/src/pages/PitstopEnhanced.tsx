@@ -16,6 +16,7 @@ type ForumPost = {
   category: string;
   time: string;
   image?: string;
+  example?: boolean;
 };
 
 const initialPosts: ForumPost[] = [
@@ -23,6 +24,7 @@ const initialPosts: ForumPost[] = [
   { id: 2, author: "OverlandKev", badge: "TRAIL MASTER", title: "Budget skid plates: aluminum 4mm vs steel 3mm for weekend warriors", preview: "Tested both on rocky Colorado fire roads. Steel took the rock slams, but that 18kg penalty hurts mpg.", upvotes: 28, comments: 14, category: "TECH TALK", time: "1h ago" },
   { id: 3, author: "VoltRunner", badge: "EV PIONEER", title: "Cold weather range drop: 2026 winter observations across Scandinavia", preview: "Heat pump efficiency held steady down to -12C. Preconditioning while plugged in saves at least 18% usable pack.", upvotes: 35, comments: 23, category: "EV LAB", time: "3h ago" },
   { id: 4, author: "NightShift", badge: "NEW MEMBER", title: "What is the best low-light route for a first midnight drive?", preview: "Looking for a route with good sightlines, interesting corners, and somewhere to stop for coffee before sunrise.", upvotes: 16, comments: 8, category: "DAILY GRIND", time: "5h ago" },
+  { id: 5, author: "GarageMara", badge: "WRENCH REGULAR", title: "Photo example: sharing an overhead night-run capture for feedback", preview: "Uploaded a clear landscape frame so the paddock can discuss composition, lighting, and the visual line of the car.", upvotes: 31, comments: 12, category: "TECH TALK", time: "6h ago", image: "https://customer-assets-lxgj4vgw.emergentagent.net/job_track-street-mode/artifacts/l5uvtuts_The%20Ones%20Who%20Rise%20_%20Departures%20Magazine.jpg", example: true },
 ];
 
 export default function PitstopEnhanced() {
@@ -109,6 +111,7 @@ export default function PitstopEnhanced() {
               <input id="pitstop-image-upload" className="visually-hidden-input" type="file" accept="image/jpeg,image/png,image/webp" onChange={handleImage} data-testid="pitstop-image-upload-input" />
               <span data-testid="pitstop-image-upload-note">JPG, PNG OR WEBP // MAX 5 MB</span>
             </div>
+            <div className="upload-guidance" data-testid="pitstop-upload-guidance"><span>PHOTO TIP //</span><p>Use a clear landscape photo, keep the vehicle or part in frame, and hide any license plate before posting. See the labeled example in the feed below.</p></div>
             {uploadError && <p className="upload-error" data-testid="pitstop-image-upload-error">{uploadError}</p>}
             {imagePreview && <div className="compose-image-preview" data-testid="pitstop-image-preview"><img src={imagePreview} alt="Discussion upload preview" data-testid="pitstop-image-preview-image" /><div><span data-testid="pitstop-image-preview-name">{imageName}</span><small data-testid="pitstop-image-preview-status">READY TO PUBLISH</small></div><button type="button" onClick={clearImage} aria-label="Remove uploaded image" data-testid="pitstop-image-remove-button"><X size={16} /></button></div>}
           </form>
@@ -117,7 +120,7 @@ export default function PitstopEnhanced() {
         <section className="pitstop-feed-section">
           <div className="pitstop-feed-header"><div><span className="eyebrow" data-testid="pitstop-feed-eyebrow">ACTIVE DISCUSSIONS</span><h2 data-testid="pitstop-feed-title">WHAT'S MOVING<br />IN THE PADDOCK.</h2></div><div className="pitstop-filter-row" data-testid="pitstop-filters">{categories.map((item) => <button className={category === item ? "active" : ""} onClick={() => setCategory(item)} key={item} data-testid={`pitstop-filter-${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</button>)}</div></div>
           <div className="forum-feed" data-testid="pitstop-forum-feed">
-            {filteredPosts.map((post) => <article className={`forum-post ${post.image ? "has-image" : ""}`} key={post.id} data-testid={`pitstop-post-${post.id}`}><div className="forum-post-meta"><span className="post-number">{String(post.id).slice(-2).padStart(2, "0")}</span><span>{post.category}</span><span>{post.time}</span></div><div className="forum-post-body"><div className="forum-author"><span className="avatar">{post.author.slice(0, 2).toUpperCase()}</span><span><strong data-testid={`pitstop-post-${post.id}-author`}>{post.author}</strong><small>{post.badge}</small></span></div><h3 data-testid={`pitstop-post-${post.id}-title`}>{post.title}</h3><p>{post.preview}</p>{post.image && <img className="forum-post-image" src={post.image} alt={`Uploaded by ${post.author}`} data-testid={`pitstop-post-${post.id}-image`} />}</div><div className="forum-post-actions"><button className="vote-button" onClick={() => upvote(post.id)} data-testid={`pitstop-post-${post.id}-upvote`}><ThumbsUp size={16} /><strong data-testid={`pitstop-post-${post.id}-votes`}>{post.upvotes}</strong></button><span><MessageCircle size={15} /> {post.comments}</span></div></article>)}
+            {filteredPosts.map((post) => <article className={`forum-post ${post.image ? "has-image" : ""} ${post.example ? "example-photo-post" : ""}`} key={post.id} data-testid={`pitstop-post-${post.id}`}><div className="forum-post-meta"><span className="post-number">{String(post.id).slice(-2).padStart(2, "0")}</span><span>{post.category}</span><span>{post.time}</span></div><div className="forum-post-body">{post.example && <span className="example-post-badge" data-testid="pitstop-photo-example-badge">EXAMPLE // PHOTO POST</span>}<div className="forum-author"><span className="avatar">{post.author.slice(0, 2).toUpperCase()}</span><span><strong data-testid={`pitstop-post-${post.id}-author`}>{post.author}</strong><small>{post.badge}</small></span></div><h3 data-testid={`pitstop-post-${post.id}-title`}>{post.title}</h3><p>{post.preview}</p>{post.image && <img className="forum-post-image" src={post.image} alt={`Uploaded by ${post.author}`} data-testid={`pitstop-post-${post.id}-image`} />}</div><div className="forum-post-actions"><button className="vote-button" onClick={() => upvote(post.id)} data-testid={`pitstop-post-${post.id}-upvote`}><ThumbsUp size={16} /><strong data-testid={`pitstop-post-${post.id}-votes`}>{post.upvotes}</strong></button><span><MessageCircle size={15} /> {post.comments}</span></div></article>)}
           </div>
         </section>
         <section className="pitstop-cta" data-testid="pitstop-cta"><Trophy size={22} /><span data-testid="pitstop-cta-copy">THE BEST ADVICE IS USUALLY AROUND THE NEXT CORNER.</span><a href="#pitstop" data-testid="pitstop-back-to-top">BACK TO THE BOARD ↑</a></section>

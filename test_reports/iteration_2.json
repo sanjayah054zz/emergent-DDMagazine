@@ -1,0 +1,46 @@
+{
+  "iteration": 2,
+  "summary": "5/5 browser checks passed. All criteria in this briefing (8-vehicle spec comparison, new vehicle pairing, seeded pitstop photo example, composer upload guidance, local upload flow) are pure frontend/local-state features with no backend API surface, so no new backend pytest files were required (consistent with spec_deviations: images/posts stay in local React state).",
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    {
+      "criterion": "Spec comparison offers eight varied vehicles",
+      "name": "tools-comparison-eight-vehicles",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Vehicle A and Vehicle B selects at /tools each contain exactly 8 <option> entries; all 8 expected names (Ténéré 700, CFMoto 450 MT, Miata, EX30, RAV4 Hybrid, Civic Type R, Bronco Badlands, McLaren Artura) found in options list."
+    },
+    {
+      "criterion": "New vehicles compare correctly",
+      "name": "tools-new-vehicles-compare-correctly",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Selected Volvo EX30 (A) + McLaren Artura (B), clicked Compare Machines: tools-vehicle-a-name='Volvo EX30 Twin Motor', tools-vehicle-b-name='McLaren Artura'; column A contains ENGINE 'Dual-Motor AWD (422 hp)', WEIGHT '1,943 kg', PRICE '$46,195 USD', COMMUTE RATING '9.0 / 10', ECONOMY '17.5 kWh/100 km'; column B contains ENGINE '3.0L Twin-Turbo V6 + E-Motor (690 hp)', WEIGHT '1,498 kg', PRICE '$237,500 USD', COMMUTE RATING '7.4 / 10', ECONOMY '10.2 km/L'. Note: per-field data-testids (tools-vehicle-a-engine etc.) do not exist in the routed ToolsAdvanced.tsx component (only column-level and name testids do) so verification used toContainText on the column container instead."
+    },
+    {
+      "criterion": "Pitstop includes a visible seeded photo example",
+      "name": "pitstop-seeded-photo-example-visible",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "pitstop-post-5 visible; pitstop-photo-example-badge text = 'EXAMPLE // PHOTO POST'; pitstop-post-5-image loaded with naturalWidth > 0 (confirmed via page.waitForFunction on el.complete/naturalWidth); pitstop-upload-guidance contains 'license plate' explanatory copy."
+    },
+    {
+      "criterion": "Pitstop composer explains image uploads",
+      "name": "pitstop-composer-upload-guidance-text",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "pitstop-image-upload-note text = 'JPG, PNG OR WEBP // MAX 5 MB'; pitstop-upload-guidance contains 'clear landscape photo', 'keep the vehicle or part in frame', and 'hide any license plate'."
+    },
+    {
+      "criterion": "Pitstop local upload still works",
+      "name": "pitstop-local-upload-publishes-post",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Uploaded fixture JPG (tscheck-upload.jpg, <5MB) via pitstop-image-upload-input; pitstop-image-preview and preview image appeared; submitted compose form with fixture title 'tscheck-upload-post-<ts>'; new article.forum-post containing that title appeared in feed with its uploaded img.forum-post-image visible."
+    }
+  ],
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false
+}

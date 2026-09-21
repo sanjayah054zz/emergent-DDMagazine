@@ -8,7 +8,7 @@ Daily Driver is a responsive interactive digital automotive magazine prototype. 
 
 - Browse the Artura hero, advance the five-story carousel, and trigger the feature CTA toast.
 - Use the masthead navigation to open the magazine archive, Tools hub, detailed Pitstop community, and Membership page.
-- Select two vehicles and reveal a side-by-side spec comparison.
+- Select any two of eight varied vehicles—adventure bikes, roadster, EV, hybrid SUV, hot hatch, off-roader, and Artura—and reveal a side-by-side spec comparison.
 - Edit commute, fuel-efficiency, and annual-tax inputs to calculate monthly running cost using the $1.75/L benchmark.
 - Upvote any Pitstop community post.
 - Select one of three livery swatches and toggle windshield masking in the visualizer.
@@ -29,4 +29,5 @@ The prototype uses local React state and static in-memory dummy data only. The e
 - The Artura cover story uses the user-supplied overhead orange supercar image consistently across the homepage hero, archive card, and article detail page.
 - **LOCAL STATE MOCKED**: Tools calculations, comparisons, Pitstop votes/posts, and Membership joining are interactive browser state only; no persistence or integrations were added.
 - Pitstop accepts local JPG/PNG/WebP uploads up to 5 MB, previews the image, and publishes it inside the new in-memory discussion post.
+- Pitstop seeds a clearly labeled example photo post and shows practical upload guidance beside the composer.
 - Livery Visualizer Pro supports body color, gloss/satin/metallic finish, wheel color, four graphic packages, windshield masking, live build telemetry, multiple session-saved builds, and downloadable SVG build cards.
