@@ -15,6 +15,8 @@ Daily Driver is a responsive interactive digital automotive magazine prototype. 
 - Toggle Track/Street Mode from the navbar; all page surfaces respond through CSS variables.
 - Open lightweight editorial detail routes for the Artura hero, overlanding, compact EV, and Miata stories, then return through the back-to-magazine links or Daily Driver logo.
 - Homepage is editorial-only; Garage, Ownership, and Livery live at `/tools`, Pitstop lives at `/pitstop`, the full archive lives at `/archive`, and Membership lives at `/membership`.
+- Shared navigation has no search icon; it includes Login/Register for guests, Account/Logout for active users, and routes to separate Help and Contact pages.
+- Local accounts expose membership status, benefits, and special member events; the demo Grid Member account is documented in `memory/test_credentials.md`.
 
 ## Data model
 
@@ -31,3 +33,8 @@ The prototype uses local React state and static in-memory dummy data only. The e
 - Pitstop accepts local JPG/PNG/WebP uploads up to 5 MB, previews the image, and publishes it inside the new in-memory discussion post.
 - Pitstop seeds a clearly labeled example photo post and shows practical upload guidance beside the composer.
 - Livery Visualizer Pro supports body color, gloss/satin/metallic finish, wheel color, four graphic packages, windshield masking, live build telemetry, multiple session-saved builds, and downloadable SVG build cards.
+- Membership supports all browser-provided ISO currency codes. Sixteen major currencies use fixed demo conversion rates; remaining codes use clearly labeled prototype estimates.
+- Guest and free Paddock readers see one premium sponsor block inside articles; Grid and Factory members read ad-free.
+- Live comparison columns show a representative image for each of the eight vehicles.
+- Pitstop includes topic search across title, body, author, and category.
+- Help offers searchable FAQs at `/help`; Contact provides a functional local form at `/contact`.

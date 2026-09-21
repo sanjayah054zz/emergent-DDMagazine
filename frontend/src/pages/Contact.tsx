@@ -1,0 +1,14 @@
+import { useState, type FormEvent } from "react";
+import { CheckCircle2, Mail, MapPin } from "@/lib/lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { MagazineFooter } from "@/components/MagazineFooter";
+import { MagazineHeader } from "@/components/MagazineHeader";
+
+export default function Contact() {
+  const [trackMode, setTrackMode] = useState(true);
+  const [sent, setSent] = useState(false);
+  const submit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSent(true); };
+  return <div className={`daily-driver-app support-page ${trackMode ? "track-mode" : "street-mode"}`} data-testid="contact-page"><MagazineHeader trackMode={trackMode} onToggleMode={() => setTrackMode((mode) => !mode)} /><main className="support-main"><section className="contact-layout"><div className="support-hero"><span className="eyebrow">SUPPORT // CONTACT</span><h1 data-testid="contact-title">TALK TO<br /><em>THE GARAGE.</em></h1><p data-testid="contact-description">Questions, corrections, story pitches, or membership help — send a signal and the editorial desk will pick it up.</p><div className="contact-details"><span><Mail size={17} /><strong>desk@dailydriver.example</strong></span><span><MapPin size={17} /><strong>GLOBAL DESK // GMT</strong></span></div></div>{sent ? <div className="contact-success" data-testid="contact-success"><CheckCircle2 size={34} /><span className="eyebrow">MESSAGE RECEIVED</span><h2>WE'LL SEE YOU<br />DOWN THE ROAD.</h2><p>Your local prototype message was submitted successfully.</p><Button className="outline-button" onClick={() => setSent(false)} data-testid="contact-send-another">SEND ANOTHER</Button></div> : <form className="contact-form" onSubmit={submit} data-testid="contact-form"><label htmlFor="contact-name">NAME</label><Input id="contact-name" required data-testid="contact-name-input" /><label htmlFor="contact-email">EMAIL</label><Input id="contact-email" type="email" required data-testid="contact-email-input" /><label htmlFor="contact-topic">TOPIC</label><select id="contact-topic" required data-testid="contact-topic-select"><option value="">Select a topic</option><option>Membership</option><option>Editorial correction</option><option>Story pitch</option><option>Technical help</option></select><label htmlFor="contact-message">MESSAGE</label><Textarea id="contact-message" required data-testid="contact-message-input" /><Button className="orange-button" type="submit" data-testid="contact-submit-button">SEND MESSAGE</Button></form>}</section></main><MagazineFooter /></div>;
+}

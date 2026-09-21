@@ -5,13 +5,16 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { queryClient } from './lib/queryClient'
+import { AccountProvider } from './lib/account'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <AccountProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AccountProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

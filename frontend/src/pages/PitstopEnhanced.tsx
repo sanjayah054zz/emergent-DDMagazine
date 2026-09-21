@@ -1,7 +1,7 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ImagePlus, MessageCircle, Plus, ThumbsUp, Trophy, X } from "@/lib/lucide-react";
+import { ImagePlus, MessageCircle, Plus, Search, ThumbsUp, Trophy, X } from "@/lib/lucide-react";
 import { MagazineFooter } from "@/components/MagazineFooter";
 import { MagazineHeader } from "@/components/MagazineHeader";
 
@@ -35,8 +35,13 @@ export default function PitstopEnhanced() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageName, setImageName] = useState("");
   const [uploadError, setUploadError] = useState("");
+  const [topicSearch, setTopicSearch] = useState("");
   const categories = ["ALL", "DAILY GRIND", "TECH TALK", "EV LAB"];
-  const filteredPosts = useMemo(() => posts.filter((post) => category === "ALL" || post.category === category), [category, posts]);
+  const filteredPosts = useMemo(() => posts.filter((post) => {
+    const matchesCategory = category === "ALL" || post.category === category;
+    const haystack = `${post.title} ${post.preview} ${post.author} ${post.category}`.toLowerCase();
+    return matchesCategory && haystack.includes(topicSearch.toLowerCase());
+  }), [category, posts, topicSearch]);
 
   const upvote = (id: number) => {
     setPosts((current) => current.map((post) => post.id === id ? { ...post, upvotes: post.upvotes + 1 } : post));
@@ -118,7 +123,7 @@ export default function PitstopEnhanced() {
         </section>
 
         <section className="pitstop-feed-section">
-          <div className="pitstop-feed-header"><div><span className="eyebrow" data-testid="pitstop-feed-eyebrow">ACTIVE DISCUSSIONS</span><h2 data-testid="pitstop-feed-title">WHAT'S MOVING<br />IN THE PADDOCK.</h2></div><div className="pitstop-filter-row" data-testid="pitstop-filters">{categories.map((item) => <button className={category === item ? "active" : ""} onClick={() => setCategory(item)} key={item} data-testid={`pitstop-filter-${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</button>)}</div></div>
+          <div className="pitstop-feed-header"><div><span className="eyebrow" data-testid="pitstop-feed-eyebrow">ACTIVE DISCUSSIONS</span><h2 data-testid="pitstop-feed-title">WHAT'S MOVING<br />IN THE PADDOCK.</h2></div><div className="pitstop-search-controls"><div className="pitstop-topic-search"><Search size={16} /><Input value={topicSearch} onChange={(event) => setTopicSearch(event.target.value)} placeholder="Search a topic..." aria-label="Search Pitstop topics" data-testid="pitstop-topic-search-input" /></div><span data-testid="pitstop-search-result-count">{filteredPosts.length} TOPIC{filteredPosts.length === 1 ? "" : "S"}</span><div className="pitstop-filter-row" data-testid="pitstop-filters">{categories.map((item) => <button className={category === item ? "active" : ""} onClick={() => setCategory(item)} key={item} data-testid={`pitstop-filter-${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</button>)}</div></div></div>
           <div className="forum-feed" data-testid="pitstop-forum-feed">
             {filteredPosts.map((post) => <article className={`forum-post ${post.image ? "has-image" : ""} ${post.example ? "example-photo-post" : ""}`} key={post.id} data-testid={`pitstop-post-${post.id}`}><div className="forum-post-meta"><span className="post-number">{String(post.id).slice(-2).padStart(2, "0")}</span><span>{post.category}</span><span>{post.time}</span></div><div className="forum-post-body">{post.example && <span className="example-post-badge" data-testid="pitstop-photo-example-badge">EXAMPLE // PHOTO POST</span>}<div className="forum-author"><span className="avatar">{post.author.slice(0, 2).toUpperCase()}</span><span><strong data-testid={`pitstop-post-${post.id}-author`}>{post.author}</strong><small>{post.badge}</small></span></div><h3 data-testid={`pitstop-post-${post.id}-title`}>{post.title}</h3><p>{post.preview}</p>{post.image && <img className="forum-post-image" src={post.image} alt={`Uploaded by ${post.author}`} data-testid={`pitstop-post-${post.id}-image`} />}</div><div className="forum-post-actions"><button className="vote-button" onClick={() => upvote(post.id)} data-testid={`pitstop-post-${post.id}-upvote`}><ThumbsUp size={16} /><strong data-testid={`pitstop-post-${post.id}-votes`}>{post.upvotes}</strong></button><span><MessageCircle size={15} /> {post.comments}</span></div></article>)}
           </div>

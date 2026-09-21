@@ -1,25 +1,21 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, Moon, Sun } from "@/lib/lucide-react";
+import { ArrowLeft, ArrowUpRight } from "@/lib/lucide-react";
 import { articleStories } from "@/lib/articles";
-
-const logoAsset =
-  "https://customer-assets-jt897jd0.emergentagent.net/job_ffb74dfa-180f-4b9a-b30c-77c68fc7c605/artifacts/zaevr1ln_THE%20DAILY%20DRIVER%20MAGAZINE%20%28no%20background%20%29.webp";
+import { MagazineHeader, logoAsset } from "@/components/MagazineHeader";
+import { useAccount } from "@/lib/account";
 
 export default function Article() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [trackMode, setTrackMode] = useState(true);
+  const { currentUser, isPaidMember } = useAccount();
   const article = articleStories.find((story) => story.slug === slug);
 
   if (!article) {
     return (
       <div className="article-page track-mode" data-testid="article-not-found-page">
-        <header className="site-header" data-testid="article-not-found-header">
-          <div className="header-inner">
-            <Link className="brand-lockup" to="/" data-testid="article-not-found-logo-link"><img src={logoAsset} alt="Daily Driver" data-testid="article-not-found-logo" /></Link>
-          </div>
-        </header>
+        <MagazineHeader trackMode={trackMode} onToggleMode={() => setTrackMode((mode) => !mode)} />
         <main className="article-not-found" data-testid="article-not-found-content"><span className="eyebrow" data-testid="article-not-found-eyebrow">404 // OFF THE MAP</span><h1 data-testid="article-not-found-title">THIS STORY ISN'T IN THE GARAGE.</h1><Link className="article-back-link" to="/" data-testid="article-not-found-back-link"><ArrowLeft size={16} /> BACK TO THE MAGAZINE</Link></main>
       </div>
     );
@@ -27,20 +23,7 @@ export default function Article() {
 
   return (
     <div className={`article-page ${trackMode ? "track-mode" : "street-mode"}`} data-testid="article-page">
-      <header className="site-header article-site-header" data-testid="article-site-header">
-        <div className="header-inner">
-          <Link className="brand-lockup" to="/" data-testid="article-logo-link" aria-label="Return to Daily Driver home">
-            <img src={logoAsset} alt="Daily Driver" data-testid="article-logo" />
-            <span data-testid="article-brand-tagline">THE EVERYDAY AUTOMOTIVE MAGAZINE</span>
-          </Link>
-          <div className="article-header-center"><span className="eyebrow" data-testid="article-header-issue">{article.issue}</span><span data-testid="article-header-label">FIELD NOTES / EDITORIAL</span></div>
-          <div className="article-header-tools">
-            <Link className="article-back-link compact" to="/" data-testid="article-back-to-magazine-link"><ArrowLeft size={15} /> BACK TO MAGAZINE</Link>
-            <button className="article-mode-toggle" onClick={() => setTrackMode((mode) => !mode)} aria-label="Toggle article mode" data-testid="article-mode-toggle">{trackMode ? <Moon size={15} /> : <Sun size={15} />}<span data-testid="article-mode-label">{trackMode ? "TRACK" : "STREET"}</span></button>
-          </div>
-        </div>
-        <div className="header-stripe"><span /></div>
-      </header>
+      <MagazineHeader trackMode={trackMode} onToggleMode={() => setTrackMode((mode) => !mode)} />
 
       <main className="article-main" data-testid="article-main">
         <div className="article-breadcrumb"><Link to="/" data-testid="article-breadcrumb-home">DAILY DRIVER</Link><span>/</span><span data-testid="article-breadcrumb-category">{article.category}</span></div>
@@ -53,6 +36,7 @@ export default function Article() {
           <aside className="article-rail" data-testid="article-rail"><span className="eyebrow" data-testid="article-rail-label">READ THE LINE</span><span data-testid="article-rail-number">01—03</span><div className="article-rail-rule" /><span data-testid="article-rail-note">THE EVERYDAY AUTOMOTIVE MAGAZINE</span></aside>
           <article className="article-copy" data-testid="article-copy">
             <p className="article-lede" data-testid="article-lede">{article.body[0]}</p>
+            {!isPaidMember && <aside className="article-sponsor" data-testid="article-sponsor-ad"><span className="eyebrow">SPONSORED // ROAD PARTNER</span><strong>KEEP THE LONG WAY HOME WITHIN REACH.</strong><p>Daily Driver guest reading is supported by Apex Fuel &amp; Road. Paid members enjoy every article without commercial breaks.</p><Link to="/membership" data-testid="article-sponsor-membership-link">GO AD-FREE <ArrowUpRight size={15} /></Link><small data-testid="article-sponsor-reader-status">{currentUser ? "PADDOCK PASS READER" : "GUEST READER"}</small></aside>}
             {article.body.slice(1).map((paragraph, index) => <p key={paragraph} data-testid={`article-body-paragraph-${index + 2}`}>{paragraph}</p>)}
             <div className="article-endmark" data-testid="article-endmark"><span /><strong>END OF TRANSMISSION</strong><span /></div>
           </article>

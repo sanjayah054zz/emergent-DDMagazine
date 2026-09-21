@@ -1,5 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Moon, Search, Sun } from "@/lib/lucide-react";
+import { Link } from "react-router-dom";
+import { LogIn, LogOut, Moon, Sun, UserPlus, UserRound } from "@/lib/lucide-react";
+import { useAccount } from "@/lib/account";
 
 const logoAsset =
   "https://customer-assets-jt897jd0.emergentagent.net/job_ffb74dfa-180f-4b9a-b30c-77c68fc7c605/artifacts/zaevr1ln_THE%20DAILY%20DRIVER%20MAGAZINE%20%28no%20background%20%29.webp";
@@ -10,13 +11,15 @@ type MagazineHeaderProps = {
 };
 
 export function MagazineHeader({ trackMode = true, onToggleMode = () => undefined }: MagazineHeaderProps) {
-  const navigate = useNavigate();
+  const { currentUser, logout } = useAccount();
   const links = [
     ["THE MAG", "/"],
     ["ARCHIVE", "/archive"],
     ["TOOLS", "/tools"],
     ["PITSTOP", "/pitstop"],
     ["MEMBERSHIP", "/membership"],
+    ["HELP", "/help"],
+    ["CONTACT", "/contact"],
   ];
 
   return (
@@ -32,7 +35,7 @@ export function MagazineHeader({ trackMode = true, onToggleMode = () => undefine
           ))}
         </nav>
         <div className="header-tools">
-          <button className="icon-button" onClick={() => navigate("/archive")} aria-label="Open article archive" data-testid="archive-search-button"><Search size={17} /></button>
+          {currentUser ? <><Link className="header-auth-link" to="/account" data-testid="header-account-link"><UserRound size={14} /><span>ACCOUNT</span></Link><button className="header-auth-icon" onClick={logout} aria-label="Log out" data-testid="header-logout-button"><LogOut size={15} /></button></> : <><Link className="header-auth-link" to="/login" data-testid="header-login-link"><LogIn size={14} /><span>LOGIN</span></Link><Link className="header-auth-link register" to="/register" data-testid="header-register-link"><UserPlus size={14} /><span>REGISTER</span></Link></>}
           <button className="mode-toggle" onClick={onToggleMode} aria-label="Toggle Track Mode and Street Mode" data-testid="magazine-mode-toggle"><span className="mode-toggle-label">{trackMode ? "TRACK" : "STREET"}</span>{trackMode ? <Moon size={14} /> : <Sun size={14} />}</button>
         </div>
       </div>
