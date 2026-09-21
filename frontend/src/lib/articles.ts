@@ -18,7 +18,7 @@ export const articleStories: ArticleStory[] = [
     issue: "01 // THE ART OF HYBRID SPEED",
     title: "Driving the New Artura.",
     dek: "Our definitive review of the latest performance benchmark — a supercar that treats every commute like a clean lap.",
-    image: "https://images.unsplash.com/photo-1787354478969-e459bfd245a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwyfHxzcG9ydHMlMjBjYXIlMjBjb2FzdGFsJTIwcm9hZHxlbnwwfHx8fDE3ODk5NDEwMjd8MA&ixlib=rb-4.1.0&q=85",
+    image: "https://customer-assets-lxgj4vgw.emergentagent.net/job_track-street-mode/artifacts/l5uvtuts_The%20Ones%20Who%20Rise%20_%20Departures%20Magazine.jpg",
     author: "Mara Voss",
     published: "SEPTEMBER 20, 2026",
     readTime: "8 MIN READ",
