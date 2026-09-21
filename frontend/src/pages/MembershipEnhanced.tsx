@@ -12,10 +12,10 @@ const plans: { id: MembershipPlan; name: string; usd: number; detail: string; pe
   { id: "factory", name: "FACTORY SPEC", usd: 14, detail: "The full telemetry", perks: ["Everything in Grid Member", "Monthly live garage session", "Quarterly print dispatch", "Special event access"] },
 ];
 
-const majorRates: Record<string, number> = { USD: 1, EUR: 0.92, GBP: 0.79, JPY: 151, CAD: 1.36, AUD: 1.52, NZD: 1.66, CHF: 0.89, CNY: 7.24, INR: 83.4, BRL: 5.05, MXN: 16.8, SGD: 1.35, HKD: 7.82, ZAR: 18.6, AED: 3.67 };
+const majorRates: Record<string, number> = { USD: 1, EUR: 0.92, GBP: 0.79, JPY: 151, IDR: 15900, CAD: 1.36, AUD: 1.52, NZD: 1.66, CHF: 0.89, CNY: 7.24, INR: 83.4, BRL: 5.05, MXN: 16.8, SGD: 1.35, HKD: 7.82, ZAR: 18.6, AED: 3.67 };
 const fallbackCurrencies = Object.keys(majorRates);
 const intlCurrency = Intl as typeof Intl & { supportedValuesOf?: (key: string) => string[] };
-const currencyCodes = intlCurrency.supportedValuesOf?.("currency") ?? fallbackCurrencies;
+const currencyCodes = Array.from(new Set(["IDR", ...(intlCurrency.supportedValuesOf?.("currency") ?? fallbackCurrencies)])).sort();
 const estimatedRate = (code: string) => majorRates[code] ?? (0.7 + (code.split("").reduce((sum, letter) => sum + letter.charCodeAt(0), 0) % 1130) / 100);
 
 export default function MembershipEnhanced() {
@@ -26,7 +26,7 @@ export default function MembershipEnhanced() {
   const navigate = useNavigate();
   const plan = plans.find((item) => item.id === selectedPlan) ?? plans[1];
   const isEstimated = !majorRates[currency];
-  const formatter = useMemo(() => new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: currency === "JPY" ? 0 : 2 }), [currency]);
+  const formatter = useMemo(() => new Intl.NumberFormat(currency === "IDR" ? "id-ID" : "en", { style: "currency", currency, maximumFractionDigits: currency === "JPY" || currency === "IDR" ? 0 : 2 }), [currency]);
   const price = (usd: number) => usd === 0 ? "FREE" : `${formatter.format(usd * estimatedRate(currency))} / MO`;
   const activate = () => { if (!currentUser) return navigate("/register"); setMembershipPlan(selectedPlan); };
   const active = currentUser?.membershipPlan === selectedPlan;
